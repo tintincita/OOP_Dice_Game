@@ -4,10 +4,15 @@ let rl = require('readline-sync');
 
 
 export class Partie {
+    // joueurs : tableau de joueurs
     public joueurs: Joueur[];
+    // nb_tours : entier représentant le nombre de tours à jouer
     public nb_tours: number;
+    // gobelet : gobelet de dés
     public gobelet: Gobelet;
 
+    // constructor(nb_tours, nb_des) : crée l'objet Partie en 
+    // récupérant le nombre de tours et nombre de dés
     constructor(nb_tours: number, nb_des: number) {
         this.nb_tours = nb_tours;
         this.gobelet = new Gobelet(nb_des);
@@ -15,6 +20,7 @@ export class Partie {
     }
 
 
+    // initialiser() : permet d'inscrire des joueurs dans la partie
     public initialiser() {
         let nb_joueurs = (rl.questionInt("nombre de joueurs ? "));
         let names: string[] = [];
@@ -42,6 +48,9 @@ export class Partie {
         }
     }
 
+    // lancer() : lance la partie : chaque joueur joue à tour 
+    // de rôle pendant les n tours. Une fois lapartieterminée,
+    // affiche le gagnant.
     public lancer() {
         for (let i = 0; i < this.nb_tours; i++) {
             this.joueurs.forEach((joueur) => {
@@ -53,6 +62,8 @@ export class Partie {
         }
     }
 
+    // afficher_gagnant() : compare les scores des joueurs et 
+    // affiche le gagnant.
     public afficher_gagnant() {
         let temp = [0];
         this.joueurs.forEach((player) => { temp.push(player.score) });

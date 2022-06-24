@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const partie_1 = require("./partie");
+// let gobli = new Gobelet(7);
+// gobli.lancer();
+// gobli.afficher_score()
+// let d = new De;
+// d.lancer();
+// console.log((d));
+// let m = new Joueur("machiavelli");
+// m.jouer(gobli);
+// m.afficherScore();
+// m.jouer(gobli);
+// m.afficherScore();
+// m.jouer(gobli);
+// m.afficherScore();
+// m.jouer(gobli);
+// m.afficherScore();
+let p = new partie_1.Partie(3, 7);
+p.initialiser();
+p.lancer();
+p.afficher_gagnant();
